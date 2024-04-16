@@ -49,7 +49,7 @@ public class AppController {
             HBox.setHgrow(hf.getCard(), Priority.ALWAYS);
         }
         dayForecast_lv.setCellFactory(cf -> new DayForecastCell());
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 14; i++) {
             DayForecast df = ForecastFactory.getRandomDayForecast();
             dayForecast_lv.getItems().add(df);
         }

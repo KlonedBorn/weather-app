@@ -8,58 +8,122 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.uwi.soscai.controller.AppController">
-   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="5.0" style="-fx-font-family: Arial;">
+   <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1080.0" vgap="5.0">
+      <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints minHeight="10.0" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" />
+         <RowConstraints minHeight="10.0" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+      </rowConstraints>
       <children>
-         <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="60.0" style="-fx-font-size: 18px;" text="Location" />
-         <HBox prefHeight="30.0" spacing="5.0">
+         <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
             <children>
-               <TextField fx:id="location_tf" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Enter Location Here" HBox.hgrow="ALWAYS" />
-               <Button mnemonicParsing="false" onAction="#getWeatherDataByLocation" prefHeight="30.0" prefWidth="80.0" text="Search" />
+               <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" style="-fx-font-size: 16px;" text="Hourly Forecast" />
+               <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="160.0" vbarPolicy="NEVER">
+                  <content>
+                     <HBox fx:id="hourForecast_hbox" prefHeight="170.0" spacing="5.0" />
+                  </content>
+               </ScrollPane>
             </children>
-         </HBox>
-         <HBox prefHeight="30.0">
+         </VBox>
+         <VBox GridPane.columnIndex="1">
             <children>
-               <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" selected="true" text="City Name" HBox.hgrow="ALWAYS">
-                  <toggleGroup>
-                     <ToggleGroup fx:id="searchMode" />
-                  </toggleGroup>
-               </RadioButton>
-               <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Country Code" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
-               <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Coordinate" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
-            </children>
-         </HBox>
-         <VBox spacing="10.0">
-            <children>
-               <VBox>
+               <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="60.0" style="-fx-font-size: 18px;" text="Location" />
+               <HBox prefHeight="30.0" spacing="5.0">
                   <children>
-                     <HBox spacing="5.0">
-                        <children>
-                           <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" style="-fx-font-size: 16px;" text="Hourly Forecast (Today)" />
-                        </children>
-                     </HBox>
-                     <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="160.0" vbarPolicy="NEVER">
-                        <content>
-                           <HBox fx:id="hourForecast_hbox" prefHeight="170.0" spacing="5.0" />
-                        </content>
-                     </ScrollPane>
+                     <TextField fx:id="location_tf" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Enter Location Here" HBox.hgrow="ALWAYS" />
+                     <Button mnemonicParsing="false" onAction="#getWeatherDataByLocation" prefHeight="30.0" prefWidth="80.0" text="Search" />
                   </children>
-               </VBox>
-               <VBox spacing="5.0">
+               </HBox>
+               <HBox prefHeight="30.0">
                   <children>
-                     <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 16px;" text="7-Day Forecast" />
-                     <ListView fx:id="dayForecast_lv" prefHeight="200.0" VBox.vgrow="SOMETIMES" />
+                     <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" selected="true" text="City Name" HBox.hgrow="ALWAYS">
+                        <toggleGroup>
+                           <ToggleGroup fx:id="searchMode" />
+                        </toggleGroup>
+                     </RadioButton>
+                     <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Country Code" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
+                     <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Coordinate" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+         <VBox spacing="5.0" GridPane.columnIndex="2" GridPane.rowSpan="2147483647">
+            <children>
+               <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 16px;" text="14-Day Forecast" />
+               <ListView fx:id="dayForecast_lv" VBox.vgrow="ALWAYS" />
+            </children>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <children>
+               <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" style="-fx-font-size: 16px;" text="Alerts" />
+               <ScrollPane fitToHeight="true" fitToWidth="true">
+                  <content>
+                     <HBox prefHeight="175.0" />
+                  </content>
+               </ScrollPane>
+            </children>
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowSpan="2147483647">
+            <children>
+               <VBox spacing="5.0" VBox.vgrow="ALWAYS">
+                  <children>
+                     <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" selected="true" text="Search" VBox.vgrow="ALWAYS">
+                        <toggleGroup>
+                           <ToggleGroup fx:id="viewMode" />
+                        </toggleGroup>
+                     </ToggleButton>
+                     <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Home" toggleGroup="$viewMode" VBox.vgrow="ALWAYS" />
+                     <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Work" toggleGroup="$viewMode" VBox.vgrow="ALWAYS" />
+                     <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Travel" toggleGroup="$viewMode" VBox.vgrow="ALWAYS" />
+                     <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Misc 1">
+                        <toggleGroup>
+                           <ToggleGroup fx:id="viewMode1" />
+                        </toggleGroup>
+                     </ToggleButton>
+                     <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Misc 2">
+                        <toggleGroup>
+                           <ToggleGroup fx:id="viewMode2" />
+                        </toggleGroup>
+                     </ToggleButton>
                   </children>
                </VBox>
             </children>
          </VBox>
+         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+               <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Save To:" />
+               <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="SOMETIMES">
+                  <children>
+                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Home" HBox.hgrow="ALWAYS" />
+                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Work" HBox.hgrow="ALWAYS" />
+                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Travel" HBox.hgrow="ALWAYS" />
+                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Misc1" HBox.hgrow="ALWAYS" />
+                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Misc2" HBox.hgrow="ALWAYS" />
+                  </children>
+               </HBox>
+            </children>
+         </HBox>
       </children>
       <padding>
-         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
       </padding>
-   </VBox>
+   </GridPane>
 </Scene>
