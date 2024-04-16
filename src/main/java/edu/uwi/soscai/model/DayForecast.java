@@ -1,17 +1,6 @@
 package edu.uwi.soscai.model;
 
-import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
-
-import edu.uwi.soscai.WeatherApp;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 
 public class DayForecast {
     private LocalDate date;
@@ -67,5 +56,9 @@ public class DayForecast {
 
     public void setWindSpeed(double windSpeed) {
         this.windSpeed = windSpeed;
+    }
+
+    public boolean isToday() {
+        return date.equals(LocalDate.now());
     }
 }

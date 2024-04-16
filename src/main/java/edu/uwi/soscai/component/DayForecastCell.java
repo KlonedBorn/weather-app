@@ -2,6 +2,8 @@ package edu.uwi.soscai.component;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 import edu.uwi.soscai.WeatherApp;
 import edu.uwi.soscai.model.DayForecast;
@@ -51,7 +53,7 @@ public class DayForecastCell extends ListCell<DayForecast> {
         if (item == null || empty) {
             setGraphic(null);
         } else {
-            day_lbl.setText(item.getDate().toString());
+            day_lbl.setText(item.getDate().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.getDefault()));
             condition_lbl.setText(item.getCondition().getCaption());
             temperature_lbl.setText(String.format("%.1f°C", item.getTemperature()));
             humidity_lbl.setText(String.format("%.0f%%", item.getHumidity() * 100));
@@ -59,13 +61,9 @@ public class DayForecastCell extends ListCell<DayForecast> {
             condition_iv.setImage(item.getCondition().getImage());
             condition_iv.setFitWidth(24);
             condition_iv.setFitHeight(24);
+            day_lbl.setStyle("-fx-font-weight: " + (item.isToday() ? "bold" : "normal") + ";");
             setGraphic(root);
         }
-    }
-
-    @FXML
-    private void initialize() {
-
     }
 
     private static final URL DAY_FORECAST_CARD_PATH = WeatherApp.class

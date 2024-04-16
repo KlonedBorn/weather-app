@@ -25,7 +25,7 @@
          <graphic>
             <ImageView fx:id="condition_iv">
                <image>
-                  <Image url="@../../img/sun-32px.png" />
+                  <Image url="@../../img/properties/sun-32px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -34,7 +34,7 @@
          <graphic>
             <ImageView>
                <image>
-                  <Image url="@../../img/thermometer-24px.png" />
+                  <Image url="@../../img/properties/thermometer-24px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -46,7 +46,7 @@
          <graphic>
             <ImageView>
                <image>
-                  <Image url="@../../img/humidity-24px.png" />
+                  <Image url="@../../img/properties/humidity-24px.png" />
                </image>
             </ImageView>
          </graphic>
@@ -58,7 +58,7 @@
          <graphic>
             <ImageView>
                <image>
-                  <Image url="@../../img/windy-24px.png" />
+                  <Image url="@../../img/properties/windy-24px.png" />
                </image>
             </ImageView>
          </graphic>
