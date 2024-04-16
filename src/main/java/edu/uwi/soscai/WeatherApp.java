@@ -18,7 +18,6 @@ public class WeatherApp extends Application {
         properties.load(SYSTEM_PROPERTIES);
         stage.setScene(FXMLLoader.load(APP_PATH));
         stage.setTitle("Weather Forecast App " + properties.getProperty("app.version"));
-        stage.setResizable(false);
         stage.show();
     }
 

@@ -21,7 +21,7 @@
       <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="10.0" prefWidth="100.0" />
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="42.5" prefWidth="100.0" />
       </columnConstraints>
       <rowConstraints>
          <RowConstraints minHeight="10.0" />
@@ -45,19 +45,20 @@
                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="60.0" style="-fx-font-size: 18px;" text="Location" />
                <HBox prefHeight="30.0" spacing="5.0">
                   <children>
-                     <TextField fx:id="location_tf" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Enter Location Here" HBox.hgrow="ALWAYS" />
+                     <TextField fx:id="location_tf" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Enter Location Here" text="St John's" HBox.hgrow="ALWAYS" />
                      <Button mnemonicParsing="false" onAction="#getWeatherDataByLocation" prefHeight="30.0" prefWidth="80.0" text="Search" />
                   </children>
                </HBox>
                <HBox prefHeight="30.0">
                   <children>
-                     <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" selected="true" text="City Name" HBox.hgrow="ALWAYS">
+                     <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Search Mode: " />
+                     <RadioButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" selected="true" text="City Name" HBox.hgrow="ALWAYS">
                         <toggleGroup>
                            <ToggleGroup fx:id="searchMode" />
                         </toggleGroup>
                      </RadioButton>
-                     <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Country Code" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
-                     <RadioButton maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Coordinate" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
+                     <RadioButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Country Code" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
+                     <RadioButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" text="Coordinate" toggleGroup="$searchMode" HBox.hgrow="ALWAYS" />
                   </children>
                </HBox>
             </children>
