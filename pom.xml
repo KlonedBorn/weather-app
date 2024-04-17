@@ -47,11 +47,10 @@
                 <version>0.0.6</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
+
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>edu.uwi.soscai.App</mainClass>
+                            <mainClass>edu.uwi.soscai.WeatherApp</mainClass>
                         </configuration>
                     </execution>
                 </executions>
