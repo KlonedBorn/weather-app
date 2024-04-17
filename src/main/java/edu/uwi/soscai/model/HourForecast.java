@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 
+import org.json.JSONObject;
+
 import edu.uwi.soscai.WeatherApp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -121,4 +123,17 @@ public class HourForecast {
 
     private static final URL HOUR_FORECAST_CARD_PATH = WeatherApp.class
             .getResource("view/layout/hour-forecast-card.fxml");
+
+    public static HourForecast fromJSON(JSONObject data, int i) {
+        System.out.println(data.toString(4));
+        LocalTime time = LocalTime.parse(data.getString("FCTTIME")
+                .substring(11, 16));
+        Condition condition = Condition.valueOf(data.getString("icon"));
+        double temperature = data.getDouble("temp");
+        double humidity = data.getDouble("humidity");
+        double windSpeed = data.getDouble("wspd");
+        return new HourForecast(time, condition, temperature, humidity,
+                windSpeed);
+    }
+
 }

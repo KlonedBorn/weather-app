@@ -10,9 +10,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.commons.io.IOUtils;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
 public class FreeWeatherConnector {
     /**
      * Get current weather

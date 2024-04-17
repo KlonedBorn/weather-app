@@ -1,6 +1,10 @@
 package edu.uwi.soscai.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class DayForecast {
     private LocalDate date;
@@ -60,5 +64,16 @@ public class DayForecast {
 
     public boolean isToday() {
         return date.equals(LocalDate.now());
+    }
+
+    public static DayForecast fromJSON(JSONObject data, int i) {
+        System.out.println(data.toString(4));
+        JSONArray arr = data.getJSONArray("forecastday");
+        LocalDate date = LocalDate.parse(data.getString("date"), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        Condition condition = Condition.valueOf(data.getString("condition"));
+        double temperature = data.getDouble("temp");
+        double humidity = data.getDouble("humidity");
+        double windSpeed = data.getDouble("wind_speed");
+        return new DayForecast(date, condition, temperature, humidity, windSpeed);
     }
 }

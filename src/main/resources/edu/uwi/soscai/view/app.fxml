@@ -75,7 +75,7 @@
                <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" style="-fx-font-size: 16px;" text="Alerts" />
                <ScrollPane fitToHeight="true" fitToWidth="true">
                   <content>
-                     <HBox prefHeight="175.0" />
+                     <HBox fx:id="alertBox_hbox" prefHeight="175.0" />
                   </content>
                </ScrollPane>
             </children>
