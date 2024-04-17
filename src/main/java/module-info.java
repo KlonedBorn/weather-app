@@ -1,8 +1,10 @@
 module edu.uwi.soscai {
     requires javafx.controls;
     requires javafx.fxml;
-    requires transitive javafx.graphics;
     requires javafx.base;
+    requires transitive javafx.graphics;
+    requires transitive org.json;
+    requires commons.io;
     opens edu.uwi.soscai to javafx.fxml;
     exports edu.uwi.soscai;
     opens edu.uwi.soscai.component to javafx.fxml;

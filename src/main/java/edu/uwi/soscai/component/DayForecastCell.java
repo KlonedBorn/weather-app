@@ -54,7 +54,7 @@ public class DayForecastCell extends ListCell<DayForecast> {
             setGraphic(null);
         } else {
             day_lbl.setText((item.isToday() ? "Today" : item.getDate().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.getDefault())));
-            condition_lbl.setText(item.getCondition().getCaption());
+            condition_lbl.setText(item.getCondition().getDayCaption());
             temperature_lbl.setText(String.format("%.1f°C", item.getTemperature()));
             humidity_lbl.setText(String.format("%.0f%%", item.getHumidity() * 100));
             windSpeed_lbl.setText(String.format("%.1f m/s", item.getWindSpeed()));

@@ -6,28 +6,37 @@ import edu.uwi.soscai.WeatherApp;
 import javafx.scene.image.Image;
 
 public enum Condition {
-    SUNNY("Sunny", getWeatherImagePath("sunny-64px")),
-    CLOUDY("Cloudy", getWeatherImagePath("cloudy-64px")),
-    RAINY("Rainy", getWeatherImagePath("rainy-64px")),
-    THUNDERSTORM("Thunderstorm", getWeatherImagePath("thunderstorm-64px"));
+    CLEAR("Clear", "Sunny", getWeatherIcon("clear-64px")),
+    PARTLY_CLOUDY("Partly cloudy", "Partly cloudy", getWeatherIcon("partially-cloudy-64px")),
+    CLOUDY("Cloudy", "Cloudy", getWeatherIcon("cloudy-64px")),
+    OVERCAST("Overcast", "Overcast", getWeatherIcon("overcast-64px")),
+    MIST("Mist", "Mist", getWeatherIcon("mist-64px")),
+    RAIN("Rain", "Rain", getWeatherIcon("rainy-64px")),
+    THUNDERSTORM("Thunderstorm", "Thunderstorm", getWeatherIcon("thunderstorm-64px"));
 
+    private final String dayCaption;
+    private final String nightCaption;
     private final URL imgPath;
-    private String caption;
 
-    private Condition(String caption, URL imgPath) {
-        this.caption = caption;
+    private Condition(String dayCaption, String nightCaption, URL imgPath) {
+        this.dayCaption = dayCaption;
+        this.nightCaption = nightCaption;
         this.imgPath = imgPath;
     }
 
-    public String getCaption() {
-        return caption;
+    public String getDayCaption() {
+        return dayCaption;
+    }
+
+    public String getNightCaption() {
+        return nightCaption;
     }
 
     public Image getImage() {
         return new Image(imgPath.toExternalForm());
     }
 
-    private static final URL getWeatherImagePath(String name) {
+    private static final URL getWeatherIcon(String name) {
         return WeatherApp.class.getResource("img/weather/" + name + ".png");
     }
 }

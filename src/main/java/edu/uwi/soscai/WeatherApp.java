@@ -1,5 +1,6 @@
 package edu.uwi.soscai;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
@@ -30,4 +31,15 @@ public class WeatherApp extends Application {
     }
 
     private static final URL APP_PATH = WeatherApp.class.getResource("view/app.fxml");
+
+    public static String getApiKey() {
+        Properties env = new Properties();
+        try {
+            env.load(WeatherApp.class.getResource(".env").openStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+            env.setProperty("WEATHER_API_KEY", "NOT_FOUND");
+        }
+        return env.getProperty("WEATHER_API_KEY");
+    }
 }

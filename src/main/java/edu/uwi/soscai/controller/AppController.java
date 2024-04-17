@@ -1,8 +1,11 @@
 package edu.uwi.soscai.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import edu.uwi.soscai.api.OpenStreetMapConnector;
 import edu.uwi.soscai.component.DayForecastCell;
 import edu.uwi.soscai.model.DayForecast;
 import edu.uwi.soscai.model.HourForecast;
@@ -29,13 +32,20 @@ public class AppController {
     private TextField location_tf;
 
     @FXML
-    void getWeatherDataByLocation(ActionEvent event) {
-
+    void getWeatherDataByLocation(ActionEvent event) throws IOException {
+        String cityName = location_tf.getText();
+        OpenStreetMapConnector osmc = new OpenStreetMapConnector();
+        if (osmc.getResponse(cityName)) {
+            double[] coord = osmc.getCoordinate();
+            String address = osmc.getAddress();
+            locationError_lbl.setText(address);
+        } else {
+            locationError_lbl.setText("Couldn't find location: " + cityName);
+        }
     }
 
     @FXML
     void initialize() {
-        showDemo();
     }
 
     private void showDemo() {
