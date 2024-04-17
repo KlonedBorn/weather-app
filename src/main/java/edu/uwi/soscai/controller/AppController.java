@@ -46,6 +46,7 @@ public class AppController {
 
     @FXML
     void initialize() {
+        showDemo();
     }
 
     private void showDemo() {
