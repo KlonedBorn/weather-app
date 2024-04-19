@@ -1,15 +1,7 @@
 package edu.uwi.soscai.controller;
 
 import java.io.IOException;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import edu.uwi.soscai.api.FreeWeatherConnector;
-import edu.uwi.soscai.api.OpenStreetMapConnector;
 import edu.uwi.soscai.component.DayForecastCell;
 import edu.uwi.soscai.model.AlertForecast;
 import edu.uwi.soscai.model.DayForecast;
